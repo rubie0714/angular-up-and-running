@@ -9,7 +9,7 @@ import { constants } from 'buffer';
 export class StockItemComponent implements OnInit {
 
   public stock: Stock;
-  public stockClasses;
+  public stockStyle;
 
 
   constructor() { }
@@ -18,12 +18,9 @@ export class StockItemComponent implements OnInit {
     this.stock = new Stock('Test Stock Company', 'TSC', 85, 80);
     const diff = (this.stock.price / this.stock.previousPrice) - 1;
     const largeChange = Math.abs(diff);
-    this.stockClasses = {
-      postive: this.stock.isPositiveChange(),
-      negative: !this.stock.isPositiveChange(),
-      'large-change': largeChange,
-      'small-change': !largeChange
-
+    this.stockStyle = {
+      'color': this.stock.isPositiveChange() ? 'green' : 'red',
+      'font-size': largeChange ? '1.2rem' : '0.8rem'
     };
 
   }

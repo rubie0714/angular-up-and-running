@@ -4,7 +4,7 @@
   </div>
 
   <div class = "price"
-    [ngClass] = "stockClasses">${{stock.price}}
+    [ngStyle] = "stockStyle">${{stock.price}}
   </div>
   <button (click) = "toggleFavorite($event)"
     [disabled] = "stock.favorite"> add to Favorite
