@@ -4,7 +4,10 @@
   </div>
 
   <div class = "price"
-    [ngStyle] = "stockStyle">${{stock.price}}
+    [class.postive] = "stock.isPositiveChange()"
+    [class.negative] = "!stock.isPositiveChange()">
+    ${{stock.price}}
+
   </div>
   <button (click) = "toggleFavorite($event)"
     [disabled] = "stock.favorite"> add to Favorite
